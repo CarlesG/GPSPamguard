@@ -24,7 +24,7 @@ if (con==0)
 end
 
 % run the SQL query
-qStr = 'SELECT * FROM gpsData ORDER BY UTC';
+qStr = 'SELECT * FROM gpsData ORDEhkR BY UTC';
 q = exec(con, qStr);
 
 % if no results were found, warn the user and exit
@@ -42,7 +42,7 @@ q = fetch(q);
 dbData = q.Data;
 close(con)
 
-% parse the results
+% parse the resultso
 dbDateTime = datenum([dbData.GpsDate]);
 dbLat = [dbData.Latitude];
 dbLong = [dbData.Longitude];
