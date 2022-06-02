@@ -16,8 +16,7 @@ if ~isempty(dbfilename)
     % IMPORTANT: change this line with the directory path folder where are all the database functions
 
     %addpath('E:\Users\cargall2\ImportGPSData\pamguard-svn-r6279-MatlabCode')
-    addpath('C:\Users\MSI\GPSPamguard\pamguard-svn-r6279-MatlabCode')
-
+    addpath('C:\Users\MSI\GPSPamguard\pamguard-svn-r6279-MatlabCode\DatabaseFiles')
     setdbprefs('datareturnformat', 'structure') 
 
     % establish a connection to the file
@@ -44,6 +43,8 @@ if ~isempty(dbfilename)
     disp('Save GPS data on the path directory')
     dbLat = [dbData.Latitude];
     dbLong = [dbData.Longitude];
+    geoplot(dbLat, dbLong, '--')
+    geobasemap topographic
 else
     f = errordlg('File not found','File Error');
     return;
