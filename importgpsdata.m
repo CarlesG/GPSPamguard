@@ -14,7 +14,9 @@ if ~isempty(dbfilename)
     disp(['Loaded directory of the file ' pathname])
     % Adding to the path the database functions implemented by PAMGUARD
     % IMPORTANT: change this line with the directory path folder where are all the database functions
-    addpath('E:\Users\cargall2\ImportGPSData\pamguard-svn-r6279-MatlabCode')
+
+    %addpath('E:\Users\cargall2\ImportGPSData\pamguard-svn-r6279-MatlabCode')
+    addpath('C:\Users\MSI\GPSPamguard\pamguard-svn-r6279-MatlabCode')
 
     setdbprefs('datareturnformat', 'structure') 
 
