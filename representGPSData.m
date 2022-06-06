@@ -30,5 +30,5 @@ zoomLevel = 9;
 name_start = 'Start point';
 name_end = 'End point';
 wmmarker(dbData.Latitude(1),dbData.Longitude(1),'Description',[num2str(dbData.Latitude(1)),', ',num2str(dbData.Longitude(1))],'FeatureName','Start Point')
-wmmarker(dbData.Latitude(end),dbData.Longitude(end),'Description',name_end,'OverlayName',name_end)
+wmmarker(dbData.Latitude(end),dbData.Longitude(end),'Description',[num2str(dbData.Latitude(end)),', ',num2str(dbData.Longitude(end))],'FeatureName','End Point')
 wmzoom(w2,zoomLevel)
