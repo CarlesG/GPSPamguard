@@ -1,11 +1,13 @@
 % SCRIPT FOR IMPORT DATA FROM PAMGUARD DATABASE IN SQLITE FORMAT
 % Script that save in a .mat in the path that we introduce, the GPS data, with time stamps
+% If there isn't a database file, pop up an error window
 %	INTPUT
 %	------
 %		* directory: we introduce via ui the path where is the .sqlite3 file.
 %	OUTPUT
 %	------		 
 %		* .mat file with the same name that the database file.
+%       * GPSdata.csv file with two columns: Latitud and Longitud
 %% GET THE DIRECTORY OF THE DATABASE FILE
 
 pathname = uigetdir('','Choose a calibration folder containing the *.sqlite3 files...');
