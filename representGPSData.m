@@ -4,6 +4,7 @@
 % dbData: data structure from de GPSdata table of sqlite3 datase from 
 % PAMGUARD'S database.
 % Also represents the transect, with initial and final point, in two manners
+%---------------------------------------------------------------------
 
 % Load database .mat data from script importgpsdata.m
 load('F:\PROJECTE LIFE\Arxius fondeig\220527\database220627.mat')
@@ -25,6 +26,11 @@ for i = 1:length(ix)
 end
 
 %% Another interactive map visualization
+% We represent in an interactive map, the transect and the markers
+% of the start and end point. Also we put the latitude and longitude 
+% coordinates.
+%-------------------------------------------------------------------
+
 % For represent the transect with Latitude and Longitude data
 wmclose("all") 
 w2 = webmap("World Imagery");
