@@ -1,18 +1,24 @@
 %% Script for represent the latitud and longitud of the transect points
-% PARAMETERS
+% RESULTS
 % ----------
 % dbData: data structure from de GPSdata table of sqlite3 datase from 
 % PAMGUARD'S database.
+% Also represents the transect, with initial and final point, in two manners
 
 % Load database .mat data from script importgpsdata.m
 load('F:\PROJECTE LIFE\Arxius fondeig\220527\database220627.mat')
-paso = 10;
-aux = 1:paso:numel(dbData.Latitude);
-ix = cell(length(aux)-1);
+step = 10;
+initial = 1:paso:numel(dbData.Latitude);
+ix = cell(length(initial)-1);
 ix{1} = 1:paso;
-for i = 2:length(aux)-1
-    ix{i} = aux(i) + 1 : aux(i+1);
+for i = 2:length(initial)-1
+    ix{i} = initial(i) + 1 : initial(i+1);
 end
+
+% Another method to do the index vectors without for loop
+% index_ini = 1:step:numel(dbData.Latitude) 
+% index_end = index_ini + (step - 1)
+
 ctab = hot(length(ix));
 for i = 1:length(ix)
     geoplot(dbData.Latitude(ix{i}), dbData.Longitude(ix{i}),'Color',ctab(i,:)), hold on
