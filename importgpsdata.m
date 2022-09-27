@@ -19,7 +19,8 @@ if ~isempty(dbfilename)
     % IMPORTANT: change this line with the directory path folder where are all the database functions
 
     %addpath('E:\Users\cargall2\ImportGPSData\pamguard-svn-r6279-MatlabCode')
-    addpath('C:\Users\MSI\GPSPamguard\pamguard-svn-r6279-MatlabCode\DatabaseFiles')
+%     addpath('C:\Users\MSI\GPSPamguard\pamguard-svn-r6279-MatlabCode\DatabaseFiles')
+    addpath('E:\Users\cargall2\ImportGPSData\pamguard-svn-r6279-MatlabCode\DatabaseFiles')
     setdbprefs('datareturnformat', 'structure') 
 
     % Establish a connection to the file
@@ -33,7 +34,7 @@ if ~isempty(dbfilename)
     qStr = 'SELECT * FROM gpsData ORDER BY UTC';
     q = exec(con, qStr');
     if(q.ResultSet==0)
-	    fprintf('Error accessing the databa');
+	    fprintf('Error accessing the database');
 	    return;
     end
     
@@ -46,10 +47,23 @@ if ~isempty(dbfilename)
     disp('Save GPS data on the path directory')
     dbLat = [dbData.Latitude];
     dbLong = [dbData.Longitude];
-    geoplot(dbLat, dbLong, '--')
-    geobasemap topographic
+    geoplot(dbLat, dbLong,'LineWidth',2)
+    geobasemap satellite
+%     geobasemap topographic
     T = table(dbLat, dbLong);
     writetable(T, [pathname filesep 'GPSdata.csv'], 'Delimiter', ';');
+
+    % Save the Click Detector Offline Events, for localization information
+    % in a .mat file
+    qStr = 'SELECT * FROM Click_Detector_OfflineEvents';
+    q = exec(con, qStr');
+    if(q.ResultSet==0)
+	    fprintf('Error accessing the database');
+	    return;
+    end
+    q = fetch(q);
+    ClickEvent = q.Data;
+    save([pathname filesep 'ClickEvent' '.mat'], 'ClickEvent');
 else
     f = errordlg('File not found','File Error');
     return;
