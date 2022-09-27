@@ -59,7 +59,7 @@ point_end = geoplot(dbData1.Latitude(end), dbData1.Longitude(end),'vy','MarkerSi
 transect_2 = geoplot(dbData2.Latitude, dbData2.Longitude,'LineWidth', 2,'Color','#A2142F')
 % dep_point = geoplot(deployment_point(1), deployment_point(2),'h','MarkerSize',10,'MarkerfaceColor',	'#77AC30')
 geoplot(dbData2.Latitude(1), dbData2.Longitude(1),'pr','MarkerSize',12,'MarkerfaceColor','#EDB120'), hold on
-geoplot(dbData2.Latitude(end), dbData2.Longitude(end),'vy','MarkerSize',9,'MarkerfaceColor','#EDB120'), hold on
+geoplot(dbData2.Latitude(end), dbData2.Longitude(end),'vy'  ,'MarkerSize',9,'MarkerfaceColor','#EDB120'), hold on
 legend([transect_1, transect_2, point_start, point_end],{'Transects 220526','Transects 220527','Start Point','End Point'})
 % legend([transect_1, transect_2, point_start, point_end, dep_point],{'Transects 220526','Transects 220527','Start Point','End Point','Deployment Point'})
 %geobasemap satellite
