@@ -7,11 +7,11 @@
 %---------------------------------------------------------------------
 
 % Load database .mat data from script importgpsdata.m
-load('F:\PROJECTE LIFE\Arxius fondeig\220527\database220627.mat')
+load('G:\PROJECTE LIFE\Arxius fondeig\220527\database220627.mat')
 step = 10;
-initial = 1:paso:numel(dbData.Latitude);
+initial = 1:step:numel(dbData.Latitude);
 ix = cell(length(initial)-1);
-ix{1} = 1:paso;
+ix{1} = 1:step;
 for i = 2:length(initial)-1
     ix{i} = initial(i) + 1 : initial(i+1);
 end
