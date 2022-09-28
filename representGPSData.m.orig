@@ -7,6 +7,10 @@
 %---------------------------------------------------------------------
 
 % Load database .mat data from script importgpsdata.m
+<<<<<<< HEAD
+load('G:\PROJECTE LIFE\Arxius fondeig\220527\database220627.mat')
+=======
+
 load('G:\PROJECTE LIFE\Arxius fondeig\220527\220627.mat')
 paso = 10;
 aux = 1:paso:numel(dbData.Latitude);
