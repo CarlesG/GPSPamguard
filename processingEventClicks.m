@@ -21,14 +21,15 @@ tma_lat = ClickEvent.TMLatitude1(index);
 tma_lon = ClickEvent.TMLongitude1(index);
 tma_time = ClickEvent.UTC(index);
 
-% Load the GPS data from path
-load('G:\PROJECTE LIFE\Arxius fondeig\database220627.mat')
-transect_1 = geoplot(dbData.Latitude, dbData.Longitude,'LineWidth', 2), hold on
+% Load the GPS data from pathf
+[file, path] = uigetfile('*.mat','Load the GPS data from .mat');
+load([path file])
+transect_1 = geoplot(dbData.Latitude, dbData.Longitude,'LineWidth', 2), hold on;
 geobasemap satellite
 for i = 1:numel(tma_lon)
-    geoplot(tma_lat(i), tma_lon(i),'Marker','x'), hold on
+    geoplot(tma_lat(i), tma_lon(i),'Marker','x',MarkerSize = 12), hold on
 end
-title('Spermwhale localization points 27052022')
-
+% title('Spermwhale localization points 27052022')
+    geoplot(median(tma_lat), median(tma_lon),'Marker','o', 'Linewidth',2)
 hold off
 
