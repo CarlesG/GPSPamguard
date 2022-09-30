@@ -43,7 +43,7 @@ if ~isempty(dbfilename)
     dbData = q.Data;	
 
     % Save the GPS data in a .mat file
-    save([pathname filesep dbfilename.name(1:end-8) '.mat'], 'dbData')
+    save([pathname filesep dbfilename.name(1:end-8) 'gps.mat'], 'dbData')
     disp('Save GPS data on the path directory')
     dbLat = [dbData.Latitude];
     dbLong = [dbData.Longitude];
