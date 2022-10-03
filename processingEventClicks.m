@@ -63,13 +63,13 @@ tma_time = ClickEvent.UTC(index);
 % Load the GPS data from path
 file_gps = dir([pathname filesep '*gps.mat']);
 load([file_gps.folder filesep file_gps.name]);
-transect_1 = geoplot(dbData.Latitude, dbData.Longitude,'LineWidth', 2), hold on;
+transect_1 = geoplot(dbData.Latitude, dbData.Longitude,'Color', 'white', 'LineWidth', 2);hold on;
 geobasemap satellite
 for i = 1:numel(tma_lon)
-    geoplot(tma_lat(i), tma_lon(i),'Marker','x',MarkerSize = 12), hold on
+    geoplot(tma_lat(i), tma_lon(i),'Color', 'yellow', 'Marker','x',MarkerSize = 12), hold on
 end
 title( [type 'localization points'])
-geoplot(median(tma_lat), median(tma_lon),'Marker','o', 'Linewidth',2)
+geoplot(median(tma_lat), median(tma_lon), 'Color', 'red', 'Marker','o', 'Linewidth',2)
 hold off
 
 % Representation of the median localization point of the type event selected
